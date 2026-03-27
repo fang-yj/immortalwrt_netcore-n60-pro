@@ -1,0 +1,38 @@
+# Actions-immortalwrt
+
+[![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/fang-yj/immortalwrt_netcore-n60-pro/blob/master/LICENSE)
+![GitHub Stars](https://img.shields.io/github/stars/fang-yj/immortalwrt_netcore-n60-pro.svg?style=flat-square&label=Stars&logo=github)
+![GitHub Forks](https://img.shields.io/github/forks/fang-yj/immortalwrt_netcore-n60-pro?style=flat-square&label=Forks&logo=github)
+
+使用 GitHub Actions 构建 immortalwrt (自用)
+
+## Usage
+
+- 点击 [Fork] 按钮生成新项目.
+- [237源码](https://github.com/padavanonly/immortalwrt-mt798x-24.10) 
+- 6.6内核自定义脚本diy-part5-6.6.sh (https://github.com/moshanghuakai01/netcore-n60-pro/blob/main/diy-part5-6.6.sh)
+- 配置文件padavanonly-immortalwrt-mt798x-6.6.config (模版: https://github.com/moshanghuakai01/netcore-n60-pro/blob/main/padavanonly-immortalwrt-mt798x-6.6.config)
+- diy-part1.sh是共用脚本，加入了ADGuardHome源码，所有默认配置文件只集成了定时重启、终端ttyd、组播代理omcproxy、组播转换msd_lite和ADGuardHome的luci，需要自定义的请自行修改对应的自定义脚本和配置文件.
+- ADGuardHome正常使用需要在luci里面手动下载[Linux_arm64核心文件](https://github.com/AdguardTeam/AdGuardHome/releases/),或者PC下载后解压将AdGuardHome上传至/usr/bin/AdGuardHome/，设置权限0755.
+- 在Actions页面运行对应的源码固件编译文件，点击右侧的 Run workflow 按钮开始编译，正常的话大概1-2h左右能看到编译结果，编译完成后下载相应的固件即可.
+
+## Tips
+
+- It may take a long time to create a `.config` file and build the OpenWrt firmware. Thus, before create repository to build your own firmware, you may check out if others have already built it which meet your needs by simply [search `Actions-Openwrt` in GitHub](https://github.com/search?q=Actions-openwrt).
+- Add some meta info of your built firmware (such as firmware architecture and installed packages) to your repository introduction, this will save others' time.
+
+## Credits
+
+- [Microsoft Azure](https://azure.microsoft.com)
+- [GitHub Actions](https://github.com/features/actions)
+- [OpenWrt](https://github.com/openwrt/openwrt)
+- [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
+- [Mikubill/transfer](https://github.com/Mikubill/transfer)
+- [softprops/action-gh-release](https://github.com/softprops/action-gh-release)
+- [Mattraks/delete-workflow-runs](https://github.com/Mattraks/delete-workflow-runs)
+- [dev-drprasad/delete-older-releases](https://github.com/dev-drprasad/delete-older-releases)
+- [peter-evans/repository-dispatch](https://github.com/peter-evans/repository-dispatch)
+
+## License
+
+[MIT](https://github.com/fang-yj/immortalwrt_netcore-n60-pro/blob/main/LICENSE)
