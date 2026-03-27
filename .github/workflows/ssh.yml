@@ -68,13 +68,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    # --- 关键步骤：在这里开启 SSH 调试 ---
-    - name: Start SSH via tmate
-      uses: mxschmitt/action-tmate@v3
-      if: env.SSH_ACTIONS == 'true'
-      with:
-        limit-access-to-actor: true  # 仅允许你自己连接，更安全
-
     - name: Download package
       id: package
       run: |
@@ -83,6 +76,13 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        
+    # --- 关键步骤：在这里开启 SSH 调试 ---
+    - name: Start SSH via tmate
+      uses: mxschmitt/action-tmate@v3
+      if: env.SSH_ACTIONS == 'true'
+      with:
+        limit-access-to-actor: true  # 仅允许你自己连接，更安全
 
     - name: Compile the firmware
       id: compile
