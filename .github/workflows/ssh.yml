@@ -82,7 +82,7 @@ jobs:
       uses: mxschmitt/action-tmate@v3
       if: env.SSH_ACTIONS == 'true'
       with:
-        limit-access-to-actor: true  # 仅允许你自己连接，更安全
+        limit-access-to-actor: false  # 仅允许你自己连接，更安全
 
     - name: Compile the firmware
       id: compile
